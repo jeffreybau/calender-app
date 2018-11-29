@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup} from '@angular/forms';
+import { UserService } from '../user.service';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-calendar',
@@ -6,8 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-
-  constructor() { }
+  name: string;
+  date: Date;
+  startTime: Time;
+  finishTime: Time;
+  notes: string;
+  
+  AddingEvent = new FormGroup({
+    'name': new FormControl,
+    'date': new FormControl,
+    'startTime': new FormControl,
+    'finishTime': new FormControl,
+    'notes': new FormControl,
+  });
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }

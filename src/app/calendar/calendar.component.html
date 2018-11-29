@@ -1,3 +1,38 @@
-<p>
-  calendar works!
-</p>
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="pad"></div>
+
+          <form [formGroup]="AddingEvent">
+            <label>name</label>
+            <input formControlName="name" type="text" class="form-control" >
+           
+            
+            <label>date</label>
+              <input formControlName="date" type="date"  class="form-control" >
+             
+            <label>Start Time</label>
+              <input formControlName="startTime" type="time"  class="form-control" >
+             
+              
+            <label>Finish Time</label>
+              <input formControlName="finishTime" type="time"  class="form-control" >
+            
+                  <label for="exampleFormControlTextarea1">Notes</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                
+
+              <div class="pad"></div>
+              <button (click)="addEvent()" type="button" class="btn btn-primary">Add Event</button>
+
+          </form>
+      </div>
+      <div class="col-sm">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        
+  
+      </div>
+    </div>
+  </div>

@@ -10,6 +10,7 @@ export const routes: Routes = [
 {path:'calendar', component: CalendarComponent},
 {path: 'home', component: HomeComponent},
 {path:'login' , component: LoginComponent},
-{path: 'signUp', component: SignUpComponent},
+{path: 'signup', component: SignUpComponent},
 {path: 'user', component: UserComponent},
+{ path: '**', redirectTo: 'home' }
 ]

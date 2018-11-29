@@ -1,3 +1,52 @@
-<p>
-  sign-up works!
-</p>
+<div class="box">
+  
+<h1>Sign Me up </h1>
+
+  <div class="break"></div>
+    <div class="col">
+
+        <form [formGroup]="signupForm">
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">User Name</span>
+                </div>
+                <input type="text" aria-label="First name" class="form-control" formConrolName="username">
+              </div>
+
+              <div class="break"></div>
+              
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">First and last name</span>
+              </div>
+              <input type="text" aria-label="First name" class="form-control" formControlName="firstName">
+              <input type="text" aria-label="Last name" class="form-control" formControlName="lastName">
+          </div>
+
+          <div class="break"></div>
+
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Password           </span>
+              </div>
+              <input type="password" aria-label="First name" class="form-control" formControlName="password">
+            </div>
+
+            <div class="break"></div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Password</span>
+                </div>
+                <input type="password" aria-label="First name" class="form-control" formControlName="password">
+              </div>
+
+              <div class="break"></div>
+
+          <button (click)="signup()" type="submit" class="btn btn-primary">Submit</button>
+        </form>  
+        <p>already singed up?  <A routerLink="/login" routerLinkActive="active">login here</A></p> 
+
+    </div>
+</div>

@@ -1,0 +1,18 @@
+.box{
+padding-top: 10%;
+padding-right: 30%;
+padding-left: 30%;   
+margin: 1%;
+}
+h1{
+    text-align: center;
+}
+p{
+    text-align: center
+}
+a{
+    text-align: center
+}
+.pad{
+    padding: 30px;
+}
