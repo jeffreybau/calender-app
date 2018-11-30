@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,16 +11,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
 
-  signupForm = new FormGroup({
-    'username': new FormControl('', [Validators.required, Validators.minLength(4)]),
-    'firstName': new FormControl('', [Validators.required, Validators.maxLength(12)]),
-    'lastName': new FormControl('',[Validators.required, Validators.maxLength(20)]),
-    'password': new FormControl('', [Validators.required, Validators.minLength(6)])
-  });
+error: Object = {};
 
-  constructor( private userService: UserService) { }
+signupForm: FormGroup
+  constructor( private userService: UserService, private router: Router) { }
 
-    get user() {
+    get username() {
       return this.signupForm.get('username');
     }
 
@@ -32,17 +29,30 @@ export class SignUpComponent implements OnInit {
       return this.signupForm.get('lastName');
     }
 
-    get pass() {
+    get password() {
       return this.signupForm.get('password');
     }
 
-    signup(username: string, password: string){
-      if (this.signupForm.valid){
-        this.userService.signup(this.signupForm.value.username, this.signupForm.value.password);
+    signup(){
+      console.log(this.signupForm)
+      this.error = {}
+      if(this.signupForm.valid){
+        this.userService.signup(this.username.value, this.password.value, this.firstName.value, this.lastName.value)
+        .subscribe(res => console.log(res))
+
+      
       }
+
     }
 
   ngOnInit() {
+
+    this.signupForm = new FormGroup({
+      'username': new FormControl('', [Validators.required, Validators.minLength(4)]),
+      'firstName': new FormControl('', [Validators.required, Validators.maxLength(12)]),
+      'lastName': new FormControl('',[Validators.required, Validators.maxLength(20)]),
+      'password': new FormControl('', [Validators.required, Validators.minLength(6)])
+    });
   }
 
 }

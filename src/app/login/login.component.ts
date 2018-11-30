@@ -8,8 +8,6 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: string;
-  password: string;
 
   loginForm = new FormGroup({
     'username': new FormControl('', [Validators.required, Validators.minLength(4)]),

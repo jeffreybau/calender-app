@@ -1,8 +1,9 @@
-let pool = require('../config.connections')
+let pool = require('../config/connections')
 
 let userFunctions ={
 
     getByUsername: (username, callback)=>{
+        console.log(username)
         pool.query('SELECT * from users where username = ? ', username, (err, results)=>{
             callback(err, results)
         })

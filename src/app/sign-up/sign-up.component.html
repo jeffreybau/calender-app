@@ -5,13 +5,13 @@
   <div class="break"></div>
     <div class="col">
 
-        <form [formGroup]="signupForm">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
 
             <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">User Name</span>
                 </div>
-                <input type="text" aria-label="First name" class="form-control" formConrolName="username">
+                <input type="text" aria-label="First name" class="form-control" formControlName="username">
               </div>
 
               <div class="break"></div>
@@ -35,16 +35,16 @@
 
             <div class="break"></div>
 
-            <div class="input-group">
+            <!-- <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Password</span>
                 </div>
                 <input type="password" aria-label="First name" class="form-control" formControlName="password">
-              </div>
+              </div> -->
 
               <div class="break"></div>
 
-          <button (click)="signup()" type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>  
         <p>already singed up?  <A routerLink="/login" routerLinkActive="active">login here</A></p> 
 

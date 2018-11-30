@@ -6,12 +6,15 @@ let user = require('../models/users.model');
 router.post('/signup',(req,res)=>{
     user.getByUsername(req.body.username, (err, results)=>{
         if(err) return res.status(402).send({err:err});
-        if(results.length > 0) return res.status(402).send({err: 'user name hes already been taken'})
+        if(results.length > 0) {
+         console.log(results)
+            return res.status(402).send({err: 'user name hes already been taken'})
+        }
         var hash = bcrypt.hashSync(req.body.password, 10);
-        let newUser = {username: req.body.username, password: hash}
+        let newUser = {username: req.body.username, password: hash, firstname: req.body.firstName, lastname: req.body.lastName}
         user.addUser(newUser, (err, result)=>{
             if(err) return res.status(402).send({err: err});
-            res.send({succsess: 'success!'});
+            res.send({success: 'success!'});
         })
     })
 })
